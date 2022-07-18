@@ -44,7 +44,7 @@ except:
 
 try:
     es = elasticsearch.Elasticsearch(
-        [ELASTIC_HOST],
+        "https://vpc-tonic-logs-pmmzrvhrbokxeh26ajr2ebbjem.us-east-1.es.amazonaws.com",
         api_key=(ELASTIC_API_KEY_ID, ELASTIC_API_KEY)
     )
 except elasticsearch.exceptions.AuthorizationException as exc:
