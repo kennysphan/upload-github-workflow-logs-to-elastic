@@ -1,6 +1,6 @@
-name: "Upload GitHub Action workflows logs to elastic"
-description: "Downloads the workflow logs and uploads to Elastic"
-author: "Shahar Glazner"
+name: "Ship GitHub Actions workflows logs to elastic"
+description: "stream the logs to kibana/opensearch"
+author: "Shahar Glazner, Kenny"
 inputs:
   github_token:
     description: "GitHub PAT"
