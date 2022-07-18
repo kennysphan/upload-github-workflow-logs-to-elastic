@@ -62,9 +62,6 @@ def main():
         sys.exit(-1)
 
     # extract all done jobs
-    print(f"=====JobsURL===")
-    print(f"{jobs_url}")
-    print(f"=====JobsURL===")
     jobs = {}
     try:
         jobs_response = requests.get(jobs_url, headers={
@@ -94,9 +91,7 @@ def main():
         print(f"Error: {output}")
         print(f"::set-output name=result::{output}")
         sys.exit(-1)
-    print(f"=====jobs===")
-    print(f"{jobs}") 
-    print(f"=====jobs===")   
+
     for job_id in jobs:
         try:
             job_logs_url = f"https://api.github.com/repos/{github_org}/{github_repo}/actions/jobs/{job_id}/logs"
@@ -108,7 +103,7 @@ def main():
                 print(f"Error: {output}")
                 print(f"::set-output name=result::{output}")
                 sys.exit(-1)
-            print(f"{r.content}")
+
             logs = io.BytesIO(r.content)
             for log in logs:
                 elastic_logger.info(log.strip().decode(), extra={
